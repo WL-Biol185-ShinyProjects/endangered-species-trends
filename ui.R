@@ -1,5 +1,6 @@
 library(shiny)
 
+worldData <- read.table("worldData.txt")
 # Define UI for application that draws a histogram
 fluidPage(
   
