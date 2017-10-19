@@ -15,7 +15,7 @@ fluidPage(
                  label = "Select a Country", 
                  choices = unique(worldData$country)
                   )
-    ),
+         ),
                    
     
     # Show a plot of the generated distribution
