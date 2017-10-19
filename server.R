@@ -10,9 +10,10 @@ function(input, output)   {
     
     worldData %>%
       filter(country == input$country) %>%
-      ggplot(aes(species, value, fill = iucn)) + geom_bar(stat =  "identity")
+      ggplot(aes(species, value, fill = iucn_category)) + geom_bar(stat =  "identity")
     
   })
   
 }
+
 

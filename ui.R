@@ -22,5 +22,5 @@ fluidPage(
     mainPanel(
       plotOutput("countryPlot")
                  )
-    )
+  )
 )
