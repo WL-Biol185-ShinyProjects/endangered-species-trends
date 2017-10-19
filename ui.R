@@ -1,24 +1,26 @@
 library(shiny)
 
-# Define UI for application that draws a histogram
+
+worldData <- read.table("worldData.txt")
+
 fluidPage(
   
   # Application title
-  titlePanel(""),
+  titlePanel("Species Data by Country"),
   
   # Sidebar with a slider input for number of bins 
   sidebarLayout(
-    sidebarPanel(
-      sliderInput("",
-                  "",
-                  min = 1,
-                  max = 50,
-                  value = 30)
-    ),
-    
-    # Show a plot of the generated distribution
+    sidebarPanel(selectInput(inputId = 'country', 
+                             label = 'select a country', 
+                             choices = unique(worldData$country)
+                             )
+                
+            ),
+                 
+                 
+  # Show a plot of the generated distribution
     mainPanel(
-      plotOutput("")
+      plotOutput("countryPlot")
+                 )
     )
-  )
 )
