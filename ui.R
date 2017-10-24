@@ -13,6 +13,7 @@ fluidPage(
     sidebarPanel(selectInput(inputId = 'country', 
                              label = 'select a country', 
                              choices = unique(worldData$country)
+                          
                              )
                 
             ),
