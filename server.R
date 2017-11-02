@@ -4,16 +4,26 @@ library(ggplot2)
 
 worldData <- read.table("worldData.txt")
 
-function(input, output)   {
-  
-  output$countryPlot <- renderPlot({
-    
-    worldData %>%
-      filter(country == input$country) %>%
-      ggplot(aes(species, value, fill = iucn.category)) + geom_bar( stat = "identity")
-      
-  })
-  
-}
-
-
+function(input,output){ output$countryPlot <- renderPlot({ colnames(worldData)[2] <- "classification"
+                                                           worldData %>%
+                                                             filter( country == input$country 
+                                                                   , classification != "Total number of known species"
+                                                                   , classification != "Total number of threatened species"
+                                                                   , classification != "Total number of indigenous threatened species"
+                                                                   , classification != "Total number of indigenous known species"
+                                                                   ) %>%
+                                                             ggplot( aes( species
+                                                                        , value
+                                                                        , fill = classification
+                                                                        )
+                                                                   ) +
+                                                             geom_bar( stat = "identity"
+                                                                         , position = "dodge"
+                                                                     ) + 
+                                                           
+                                                             theme(axis.text.x = element_text( angle = 60
+                                                                                             , hjust = 1
+                                                                                             )
+                                                                  )
+                                                        })
+                      }
