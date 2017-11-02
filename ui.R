@@ -3,6 +3,7 @@ library("ggmap")
 library(maptools)
 library(maps)
 source("speciesByCountry.R")
+source("worldMaps.R")
 
 worldData <- read.table("worldData.txt")
 
@@ -13,11 +14,10 @@ navbarPage( "Endangeres Species App"
             #Tab Title
           , statusTab
             
-          , tabPanel( "Global Heat Map"
+          , tabPanel( "US Map"
                     )
             
-          , tabPanel( "U.S. Map"
-                    )
+          , globalTab
           )
  
 

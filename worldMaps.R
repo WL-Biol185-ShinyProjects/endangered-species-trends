@@ -4,5 +4,14 @@ library(maptools)
 library(maps)
 
 #Draw world map
-globalTap <- tabPanel( "Global Heat Map"
+globalTab <- tabPanel( "Global Heat Map"
+                     , tabsetPanel( tabPanel( "Endangered Species"
+                                            )
+                                  , tabPanel( "Threatened Species"
+                                            )
+                                  , tabPanel( "Vulnerable Species"
+                                            )
+                                  , tabPanel( "Critically Endangered Species"
+                                            )
+                                  )
                      )
