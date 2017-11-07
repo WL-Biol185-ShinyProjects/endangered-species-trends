@@ -6,9 +6,9 @@ stateBar <- tabPanel( "Species Groups by State"
                        , fluidPage( # Sidebar with a dropdown for selecting Country
                          sidebarLayout( 
                            sidebarPanel(
-                             selectInput( inputId = "State"
+                             selectInput( inputId = "StateBar"
                                           , label = "Select a State" 
-                                          , choices = unique(usData$State)
+                                          , choices = sort(unique(usData$State))
                              )
                            )
                            
