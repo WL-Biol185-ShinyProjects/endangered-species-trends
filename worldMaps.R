@@ -1,7 +1,7 @@
 library(shiny)
 library("ggmap")
 library(maptools)
-library(maps)
+library(leaflet)
 
 #Draw world map
 globalTab <- tabPanel( "Global Heat Map"

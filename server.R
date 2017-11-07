@@ -46,4 +46,6 @@ function(input,output){ output$countryPlot <- renderPlot({ colnames(worldData)[2
                         }
                         )
                         
-                        }
+}
+
+
