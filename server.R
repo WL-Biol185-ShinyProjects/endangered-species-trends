@@ -3,7 +3,7 @@ library(tidyverse)
 library(ggplot2)
 
 worldData <- read.table("worldData.txt")
-
+usData <- read.table("usStateData.txt")
 
 function(input,output){ output$countryPlot <- renderPlot({ colnames(worldData)[2] <- "classification"
                                                            worldData %>%
@@ -27,5 +27,23 @@ function(input,output){ output$countryPlot <- renderPlot({ colnames(worldData)[2
                                                                                              )
                                                                   )
                                                         })
-                      }
+                      
 
+
+
+                        output$usDataPlot <- renderPlot({
+                                              usData %>%
+    
+                                                        filter(State == input$State) %>%
+                                                        ggplot( aes(Organism.Type)) + geom_bar() 
+                                                          }
+                                                         )
+                        output$usPie <- renderPlot({
+                          usData %>%
+                            
+                            filter(State == input$State) %>%
+                            ggplot( aes( x = State, fill = Organism.Type)) + geom_bar(width = 1) + coord_polar() + theme_void()
+                        }
+                        )
+                        
+                        }
