@@ -8,7 +8,7 @@ statusTab <- tabPanel( "Species Status by Country"
                                                  sidebarPanel(
                                                                selectInput( inputId = "country"
                                                                           , label = "Select a Country" 
-                                                                          , choices = unique(worldData$country)
+                                                                          , choices = sort(unique(worldData$country))
                                                                           )
                                                              )
                                   
