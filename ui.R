@@ -21,9 +21,11 @@ navbarPage( "Endangered Species App"
           , statusTab
             
 
+
           , stateBar  
           
           , statePie
+
 
           , tabPanel( "US Map"
                     )
@@ -31,5 +33,4 @@ navbarPage( "Endangered Species App"
           , globalTab
           )
 
- 
 
