@@ -27,6 +27,9 @@ function(input,output){ output$countryPlot <- renderPlot({ colnames(worldData)[2
                                                                                              )
                                                                   )
                                                         })
+
+                      
+
                       
 
 
@@ -34,16 +37,21 @@ function(input,output){ output$countryPlot <- renderPlot({ colnames(worldData)[2
                         output$usDataPlot <- renderPlot({
                                               usData %>%
     
-                                                        filter(State == input$State) %>%
-                                                        ggplot( aes(Organism.Type)) + geom_bar() 
+                                                        filter(State == input$StateBar) %>%
+                                                        ggplot(aes(Organism.Type)) + geom_bar() 
                                                           }
                                                          )
+                        
+                        
+                        
+                        
+                        
                         output$usPie <- renderPlot({
                           usData %>%
-                            
-                            filter(State == input$State) %>%
-                            ggplot( aes( x = State, fill = Organism.Type)) + geom_bar(width = 1) + coord_polar() + theme_void()
+                            filter(as.character(usData$State) == input$StatePie) %>%
+                            ggplot( aes( x = State, fill = Organism.Type)) + geom_bar(width = 1) + coord_polar(theta = "y") + theme_void()
                         }
                         )
                         
                         }
+
