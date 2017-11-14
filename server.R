@@ -63,6 +63,7 @@ function(input,output){
 
 
 
+
                         output$usDataPlot <- renderPlot({ usData %>%
                                                           filter(State == input$State
                                                                 ) %>%
@@ -83,6 +84,26 @@ function(input,output){
                                                                                        ) + theme_void(
                                                                                                      )
                                                   })
+
+                        output$usDataPlot <- renderPlot({
+                                              usData %>%
+    
+                                                        filter(State == input$StateBar) %>%
+                                                        ggplot(aes(Organism.Type)) + geom_bar() 
+                                                          }
+                                                         )
+                        
+                        
+                        
+                        
+                        
+                        output$usPie <- renderPlot({
+                          usData %>%
+                            filter(as.character(usData$State) == input$StatePie) %>%
+                            ggplot( aes( x = State, fill = Organism.Type)) + geom_bar(width = 1) + coord_polar(theta = "y") + theme_void()
+                        }
+                        )
+
                         
 
                       }

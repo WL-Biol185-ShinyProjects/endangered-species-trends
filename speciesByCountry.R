@@ -3,6 +3,7 @@ worldData <- read.table("worldData.txt"
 
 # Define UI for application that draws a bar graph
 statusTab <- tabPanel( "Species Status by Country"
+
                      , sidebarLayout( 
                                       sidebarPanel(
                                                     selectInput( inputId = "country"
@@ -10,6 +11,7 @@ statusTab <- tabPanel( "Species Status by Country"
                                                                , choices = unique(worldData$country)
                                                                )
                                                   )
+
                                   
                                   
                                     # Show a plot of the endangered species by country

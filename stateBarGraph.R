@@ -3,9 +3,10 @@ usData <- read.table( "usStateData.txt"
 
 # Define UI for application that draws a bar graph
 stateBar <- tabPanel( "Species Groups by State"
+
                     , sidebarLayout( 
                                      sidebarPanel(
-                                                   selectInput( inputId = "State"
+                                                   selectInput( inputId = "StateBar"
                                                               , label = "Select a State" 
                                                               , choices = unique( usData$State
                                                                                 )
@@ -22,6 +23,7 @@ stateBar <- tabPanel( "Species Groups by State"
                     )
                     
       
+
 
 
 
