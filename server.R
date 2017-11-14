@@ -3,7 +3,7 @@ library(tidyverse)
 library(ggplot2)
 
 worldData <- read.table("worldData.txt")
-usData <- read.table("usStateData.txt")
+usData <- read.table("usStateDataClean.txt")
 
 function(input,output){ output$countryPlot <- renderPlot({ colnames(worldData)[2] <- "classification"
                                                            worldData %>%

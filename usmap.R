@@ -4,7 +4,7 @@ library(ggplot2)
 library(leaflet)
 library(maps)
 
-usData <- read.table("usStateData.txt")
+usData <- read.table("usStateDataClean.txt")
 
 mapStates <- map("state", fill = TRUE, plot = FALSE)
 leaflet(data = mapStates) %>% addTiles() %>%
