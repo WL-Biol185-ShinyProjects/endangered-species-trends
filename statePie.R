@@ -16,7 +16,7 @@ statePie <- tabPanel( "Species Groups by State"
                           
                           # Show a plot of the endangered species by country
                           , mainPanel(
-                            plotOutput( "usPie")
+                            plotOutput( "usPie", click = "plotClick"), verbatimTextOutput("info")
                           )
                         )
                       )
