@@ -72,34 +72,8 @@ function(input,output){
                                                                 ) + geom_bar(
                                                                             ) 
                                                        })
-                        output$usPie <- renderPlot({
-                                                     usData %>%
-                                                      filter(State == input$State
-                                                            ) %>%
-                                                      ggplot( aes( x = State
-                                                                 , fill = Organism.Type
-                                                                 )
-                                                            ) + geom_bar( width = 1
-                                                                        ) + coord_polar(
-                                                                                       ) + theme_void(
-                                                                                                     )
-                                                  })
-
-                        output$usDataPlot <- renderPlot({
-                                              usData %>%
-    
-                                                        filter(State == input$StateBar) %>%
-                                                        ggplot(aes(Organism.Type)) + geom_bar() 
-                                                          }
-                                                         )
-                        
-                        
-                        
-                    
-
-                        
-
-                      }
+}
+                      
 
 
 
