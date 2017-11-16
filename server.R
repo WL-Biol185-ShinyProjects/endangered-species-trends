@@ -64,6 +64,7 @@ function(input,output){
 
 
 
+
                         output$usDataPlot <- renderPlot({ usData %>%
                                                           filter(State == input$State
                                                                 ) %>%
@@ -72,26 +73,6 @@ function(input,output){
                                                                 ) + geom_bar(
                                                                             ) 
                                                        })
-                        output$usPie <- renderPlot({
-                                                     usData %>%
-                                                      filter(State == input$State
-                                                            ) %>%
-                                                      ggplot( aes( x = State
-                                                                 , fill = Organism.Type
-                                                                 )
-                                                            ) + geom_bar( width = 1
-                                                                        ) + coord_polar(
-                                                                                       ) + theme_void(
-                                                                                                     )
-                                                  })
-
-                        output$usDataPlot <- renderPlot({
-                                              usData %>%
-    
-                                                        filter(State == input$StateBar) %>%
-                                                        ggplot(aes(Organism.Type)) + geom_bar() 
-                                                          }
-                                                         )
                         
                         
                         
@@ -100,7 +81,10 @@ function(input,output){
                         output$usPie <- renderPlot({
                           usData %>%
                             filter(as.character(usData$State) == input$StatePie) %>%
-                            ggplot( aes( x = State, fill = Organism.Type)) + geom_bar(width = 1) + coord_polar(theta = "y") + theme_void()
+                               count(State, Organism.Type) %>%
+                                ggplot( aes( x = State, y = n, fill = Organism.Type, label = n)) + geom_bar( width = 1, stat = "identity") + coord_polar(theta = "y") + theme_void() + geom_text(size = 12, position = position_stack(vjust = 0.5))
+                            
+                           
                         }
                         )
 
