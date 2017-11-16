@@ -11,7 +11,7 @@ source("worldMaps.R")
 
 
 worldData <- read.table("worldData.txt")
-usData <- read.table("usStateData.txt")
+usData <- read.table("usStateDataClean.txt")
 
 # Define UI for application that draws a histogram
 
