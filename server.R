@@ -95,14 +95,7 @@ function(input,output){
                         
                         
                         
-                        
-                        
-                        output$usPie <- renderPlot({
-                          usData %>%
-                            filter(as.character(usData$State) == input$StatePie) %>%
-                            ggplot( aes( x = State, fill = Organism.Type)) + geom_bar(width = 1) + coord_polar(theta = "y") + theme_void() + geom_text(aes(y = Organism.Type, label=percentage))
-                        }
-                        )
+                    
 
                         
 
