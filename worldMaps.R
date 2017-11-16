@@ -1,11 +1,15 @@
 library(shiny)
 library("ggmap")
 library(maptools)
-library(maps)
+library(leaflet)
 
 #Draw world map
 globalTab <- tabPanel( "Global Heat Map"
                      , tabsetPanel( tabPanel( "Endangered Species"
+                                            , mainPanel(
+                                                         leafletOutput( "endangeredMammals"
+                                                                      )
+                                                       )
                                             )
                                   , tabPanel( "Threatened Species"
                                             )
