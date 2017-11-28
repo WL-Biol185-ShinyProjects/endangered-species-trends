@@ -1,6 +1,7 @@
 library(shiny)
 library(tidyverse)
 library(ggplot2)
+library(leaflet)
 
 worldData <- read.table("worldData.txt")
 usData <- read.table("usStateDataClean.txt")
