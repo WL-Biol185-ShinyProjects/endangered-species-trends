@@ -31,35 +31,45 @@ function(input,output){
 
                         
                         
-                        output$EndangeredClass <- renderLeaflet({ EndangeredClass <- worldData%>%
-                                          filter( iucn == "ENDANGERED"
-                                                , species == input$EndangeredClass
-                                          )
-                                        ECountriesGeo <- rgdal::readOGR("countries.geo.json", "OGRGeoJSON")
-                                        
-                                        ECountriesGeo@data <-
-                                          ECountriesGeo@data %>%
-                                          left_join( EndangeredClass
-                                                   , by = c( "name" = "country"
-                                                   )
-                                          )
-                                        
-                                        pal <- colorNumeric("YlOrRd", c(min(EndangeredClass$value), max(EndangeredClass$value)))
-                                        leaflet(data = ECountriesGeo)%>%
-                                          addTiles()%>%
-                                          addPolygons( fillColor = ~pal(value)
-                                                       , weight = 1
-                                                       , opacity = 0.1
-                                                       , fillOpacity = 0.7
-                                          )%>%
-                                          addLegend( pal = pal
-                                                   , values = ~value
-                                                   , title = NULL
-                                                   , position = "bottomright"
-                                          )%>%
-                                          setView( lat = 38.0110306, lng = 0, zoom = 1.5)
-                          
-                                                         })
+                        output$EndangeredClass <- renderLeaflet({ 
+                                                                  EndangeredClass <- worldData%>%
+                                                                    filter( iucn == "ENDANGERED"
+                                                                          , species == input$EndangeredClass
+                                                                          )
+                                                                  
+                                                                  ECountriesGeo <- rgdal::readOGR( "countries.geo.json"
+                                                                                                 , "OGRGeoJSON"
+                                                                                                 )
+                                                                
+                                                                  ECountriesGeo@data <- ECountriesGeo@data %>%
+                                                                      left_join( EndangeredClass
+                                                                               , by = c( "name" = "country"
+                                                                                       )
+                                                                               )
+                                                                
+                                                                  pal <- colorNumeric( "YlOrRd"
+                                                                                     , c( min
+                                                                                          ( EndangeredClass$value
+                                                                                          )
+                                                                                          , max( EndangeredClass$value
+                                                                                               )
+                                                                                          )
+                                                                                     )
+                                                                    leaflet(data = ECountriesGeo)%>%
+                                                                      addTiles()%>%
+                                                                      addPolygons( fillColor = ~pal(value)
+                                                                                 , weight = 1
+                                                                                 , opacity = 0.1
+                                                                                 , fillOpacity = 0.7
+                                                                      )%>%
+                                                                      addLegend( pal = pal
+                                                                               , values = ~value
+                                                                               , title = "number of species"
+                                                                               , position = "bottomright"
+                                                                      )%>%
+                                                                      setView( lat = 38.0110306, lng = 0, zoom = 1.5)
+                                                  
+                                                            })
                         
                         output$ThreatenedClass <- renderLeaflet({ ThreatenedClass <- worldData%>%
                           filter( iucn == "THREATENED"
@@ -84,7 +94,7 @@ function(input,output){
                           )%>%
                           addLegend( pal = pal
                                      , values = ~value
-                                     , title = NULL
+                                     , title = "number of species"
                                      , position = "bottomright"
                           )%>%
                           setView( lat = 38.0110306, lng = 0, zoom = 1.5)
@@ -114,7 +124,7 @@ function(input,output){
                           )%>%
                           addLegend( pal = pal
                                      , values = ~value
-                                     , title = NULL
+                                     , title = "number of species"
                                      , position = "bottomright"
                           )%>%
                           setView( lat = 38.0110306, lng = 0, zoom = 1.5)
@@ -144,7 +154,7 @@ function(input,output){
                           )%>%
                           addLegend( pal = pal
                                      , values = ~value
-                                     , title = NULL
+                                     , title = "number of species"
                                      , position = "bottomright"
                           )%>%
                           setView( lat = 38.0110306, lng = 0, zoom = 1.5)

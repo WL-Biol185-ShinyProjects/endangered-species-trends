@@ -8,7 +8,16 @@ library(maps)
 globalTab <- tabPanel( "Global Heat Map"
                      , tabsetPanel( 
                                     tabPanel( "Endangered Species"
-
+                                            , sidebarPanel(
+                                                            selectInput( inputId = "EndangeredClass"
+                                                                       , label = "Select a Class of Animal" 
+                                                                       , choices = unique( worldData$species)
+                                                                       )
+                                                          )
+                                            , mainPanel(
+                                                         leafletOutput( "EndangeredClass"
+                                                                      )
+                                                       )
                                             )
                                     
                                   , tabPanel( "Threatened Species"
