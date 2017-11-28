@@ -55,9 +55,9 @@ function(input,output){
                                                                                                )
                                                                                           )
                                                                                      )
-                                                                    leaflet(data = ECountriesGeo)%>%
-                                                                      addTiles()%>%
-                                                                      addPolygons( fillColor = ~pal(value)
+                                                                  leaflet(data = ECountriesGeo)%>%
+                                                                    addTiles()%>%
+                                                                    addPolygons( fillColor = ~pal( value)
                                                                                  , weight = 1
                                                                                  , opacity = 0.1
                                                                                  , fillOpacity = 0.7
@@ -189,9 +189,24 @@ function(input,output){
                             
                            
                         })
-
-
                         
+                        output$usDataPlotCombined <- renderPlot({usData %>%
+                            filter(State == input$StateBarCombined
+                            ) %>%
+                            ggplot( aes( Organism.Type
+                            )
+                            ) + geom_bar(
+                            )})
+
+
+                        output$usPieCombined <- renderPlot({
+                          usData %>%
+                            filter(as.character(usData$State) == input$StatePieCombined) %>%
+                            count(State, Organism.Type) %>%
+                            ggplot( aes( x = State, y = n, fill = Organism.Type, label = n)) + geom_bar( width = 1, stat = "identity") + coord_polar(theta = "y") + theme_void() + geom_text(size = 12, position = position_stack(vjust = 0.5))
+                          
+                          
+                        })
 
                       }
 
