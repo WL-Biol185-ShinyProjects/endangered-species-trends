@@ -188,9 +188,10 @@ function(input,output){
                                count(State, Organism.Type) %>%
                                 ggplot( aes( x = State, y = n, fill = Organism.Type, label = n)) + geom_bar( width = 1, stat = "identity") + coord_polar(theta = "y") + theme_void() + geom_text(size = 12, position = position_stack(vjust = 0.5)) })
                           
-                        output$info <- renderPrint({
+                        output$usPieTable <- renderDataTable({
                           usData %>%
-                            nearPoints(input$plotClick)
+                            filter(as.character(usData$State) == input$StatePie)
+                            
                         })  
                             
                            
