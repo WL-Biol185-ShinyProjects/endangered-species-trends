@@ -1,6 +1,7 @@
 library(shiny)
 library(tidyverse)
 library(ggplot2)
+library(leaflet)
 
 worldData <- read.table("worldData.txt")
 usData <- read.table("usStateDataClean.txt")
@@ -162,7 +163,6 @@ function(input,output){
                         })
 
 
-
                         output$usDataPlot <- renderPlot({ usData %>%
                                                           filter(State == input$StateBar
                                                                 ) %>%
@@ -173,6 +173,7 @@ function(input,output){
                                                        })
 
 
+
                         output$usDataPlot <- renderPlot({
                                               usData %>%
     
@@ -180,15 +181,21 @@ function(input,output){
                                                         ggplot(aes(Organism.Type)) + geom_bar() 
                                                           })
 
-                        
+
                         output$usPie <- renderPlot({
                           usData %>%
                             filter(as.character(usData$State) == input$StatePie) %>%
                                count(State, Organism.Type) %>%
-                                ggplot( aes( x = State, y = n, fill = Organism.Type, label = n)) + geom_bar( width = 1, stat = "identity") + coord_polar(theta = "y") + theme_void() + geom_text(size = 12, position = position_stack(vjust = 0.5))
+                                ggplot( aes( x = State, y = n, fill = Organism.Type, label = n)) + geom_bar( width = 1, stat = "identity") + coord_polar(theta = "y") + theme_void() + geom_text(size = 12, position = position_stack(vjust = 0.5)) })
+                          
+                        output$usPieTable <- renderDataTable({
+                          usData %>%
+                            filter(as.character(usData$State) == input$StatePie)
+                            
+                        })  
                             
                            
-                        })
+
                         
                         output$usDataPlotCombined <- renderPlot({usData %>%
                             filter(State == input$StateBarCombined
@@ -198,6 +205,7 @@ function(input,output){
                             ) + geom_bar(
                             )})
 
+              
 
                         output$usPieCombined <- renderPlot({
                           usData %>%
@@ -207,8 +215,11 @@ function(input,output){
                           
                           
                         })
+                        
+}
 
-                      }
+                      
+
 
 
 
