@@ -164,25 +164,6 @@ function(input,output){
                         })
 
 
-                        output$usDataPlot <- renderPlot({ usData %>%
-                                                          filter(State == input$StateBar
-                                                                ) %>%
-                                                          ggplot( aes( Organism.Type
-                                                                     )
-                                                                ) + geom_bar(
-                                                                            ) 
-                                                       })
-
-
-
-                        output$usDataPlot <- renderPlot({
-                                              usData %>%
-    
-                                                        filter(State == input$StateBar) %>%
-                                                        ggplot(aes(Organism.Type)) + geom_bar() 
-                                                          })
-
-
                         output$usPie <- renderPlot({
                           usData %>%
                             filter(as.character(usData$State) == input$StatePie) %>%
@@ -198,25 +179,7 @@ function(input,output){
                            
 
                         
-                        output$usDataPlotCombined <- renderPlot({usData %>%
-                            filter(State == input$StateBarCombined
-                            ) %>%
-                            ggplot( aes( Organism.Type
-                            )
-                            ) + geom_bar(
-                            )})
-
-              
-
-                        output$usPieCombined <- renderPlot({
-                          usData %>%
-                            filter(as.character(usData$State) == input$StatePieCombined) %>%
-                            count(State, Organism.Type) %>%
-                            ggplot( aes( x = State, y = n, fill = Organism.Type, label = n)) + geom_bar( width = 1, stat = "identity") + coord_polar(theta = "y") + theme_void() + geom_text(size = 12, position = position_stack(vjust = 0.5))
-                          
-                          
-                        })
-                        
+                       
 }
 
                       

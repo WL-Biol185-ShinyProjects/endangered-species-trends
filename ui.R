@@ -3,10 +3,7 @@ library("ggmap")
 library(maptools)
 library(maps)
 source("speciesByCountry.R")
-
-source("stateBarGraph.R")
 source("statePie.R")
-source("speciesByState.R")
 source("worldMaps.R")
 
 
@@ -18,19 +15,20 @@ usData <- read.table("usStateDataClean.txt")
 # Application title
 navbarPage( "Endangered Species App"
             #Tab Title
+            
+          , tabPanel( "Home"
+                    )
           , statusTab
             
 
-
-          , stateBar  
           
           , statePie
 
 
-          , tabPanel( "US Map"
-                    )
             
           , globalTab
+          
+          , tabPanel( "Sources")
           )
 
 
