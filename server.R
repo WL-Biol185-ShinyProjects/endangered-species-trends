@@ -8,7 +8,7 @@ library(shinythemes)
 worldData <- read.table("worldData.txt")
 usData <- read.table("usStateDataClean.txt")
 
-firstup <- function(x) {substr(x, 1, 1) <- toupper(substr(x, 1, 1))}
+firstup <- function(x) {substr(x, 1, 1) <- toupper(substr(x, 1, 1))}(x)
 
 function(input,output){ 
                         output$countryPlot <- renderPlot({ colnames(worldData)[2] <- "classification"
