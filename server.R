@@ -20,6 +20,7 @@ firstup <- function(x) { substr( x
                                )
                        }
 
+
 function(input,output){ 
                         output$countryPlot <- renderPlot({ colnames(worldData)[2] <- "classification"
                                                            worldData %>%
