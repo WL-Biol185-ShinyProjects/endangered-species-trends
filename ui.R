@@ -24,15 +24,10 @@ navbarPage( theme = shinytheme("cerulean"),
           , homePage 
           
           , statusTab
-            
 
-          
           , statePie
 
-
-            
           , globalTab
-          
 
           , sourcesPage
 
