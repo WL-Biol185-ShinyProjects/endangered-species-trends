@@ -7,29 +7,31 @@ homePage <- tabPanel( "Home"
                             
                             br(),
                             
-                            img(src = "endangered_species_map.png", height = 500, width = 900),
-                                      
-                            p("Because we know that species have been disappearing from this planet at a devastating rate,"),
-                            p("this WebApp was designed to help users see the trends of this disappearance."),
+                            img(src = "endangered_species_map.png", height = 400, width = 650),
+                            
+                            br(),
+                            br(),
+                            br(),
+                            
+                            h4("Because we know that species have been disappearing from this planet at a devastating rate
+                              this WebApp was designed to help users see the trends of this disappearance."),
                             
                             br(),
                             
-                            p("Designed so that users can investigate trends in the United States of America and in"),
-                            p("the world per country, we hope that this app is useful to areas of conservation"),
-                            p("by allowing users to become a bit more familiar with the world in which they live."),
+                            h4("Designed so that users can investigate trends in the United States of America and in the world per country, we hope that this app is useful to areas of conservation by allowing users to become a bit more familiar with the world in which they live."),
                             
                             br(),
                             
-                            p("Around the world, what are the trends to endangered species loss?"),
-                            p("Are the species inhabiting some countries at more risk than others?"),
-                            p("Or, are the species inhabiting some US States at more risk than others?"),
-                            p("These are the questions that you'll be able to answer after investigating this app."),
+                            h4("Around the world, what are the trends to endangered species loss? Are the species inhabiting some countries at more risk than others? Or, are the species inhabiting some US States at more risk than others?
+                            These are the questions that you'll be able to answer after investigating this app."),
                             
                             br(),
-                            
-                            p("Authors of this app are Olivia Kubli, Emily Limmer, Virginia McGhee, and Morgan Trimas"), 
-                            p("We thank Dr. Whitworth for his help during this class."),
-                            p("Without him, this app would not have been possible.")
+                            br(),
+                            br(),
+                            br(),
+                            br(),
+                           h6("Authors of this app are Olivia Kubli, Emily Limmer, Virginia McGhee, and Morgan Trimas. We thank Dr. Whitworth for his help during this class.
+                         Without him, this app would not have been possible.")
                           )
                         )
                       )
