@@ -6,8 +6,10 @@ homePage <- tabPanel( "Home"
                            mainPanel( h1("Welcome to the Endangered Species Trends App!"),
                             
                             br(),
+                            
+                            img(src = "endangered_species_map.png", height = 500, width = 900),
                                       
-                            p("Because we know that species have been disappearing from this plannet at a devastating rate,"),
+                            p("Because we know that species have been disappearing from this planet at a devastating rate,"),
                             p("this WebApp was designed to help users see the trends of this disappearance."),
                             
                             br(),
