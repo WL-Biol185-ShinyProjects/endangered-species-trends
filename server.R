@@ -257,6 +257,7 @@ function(input,output){
                                                                                                         paste0( "https://en.wikipedia.org/wiki/"
                                                                                                               , x
                                                                                                               )
+                                                                                                      , target = "_blank"  
                                                                                                       , x
                                                                                                       )
                                                                                                    ) 
