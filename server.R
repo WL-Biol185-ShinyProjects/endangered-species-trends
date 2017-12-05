@@ -178,21 +178,11 @@ function(input,output){
                          
                         
                         output$usPieTable <- renderDataTable({
-                          
-                          
-                         
-                          
-                          
-                
-                          usData %>%
-                            
-                              
-                          
-                          firstup(tolower(usData$Species.Name)) %>%
-                            gsub(pattern = " ", replacement = "_", fixed = TRUE) %>%
-                            sapply(function(x) {as.character(a(href = paste0("https://en.wikipedia.org/wiki/", x), x))} ) %>%
-                
-                          filter( as.character(usData$State) == input$StatePie)
+                          usData$Species.Name <- 
+                            firstup(tolower(usData$Species.Name)) %>%
+                              gsub(pattern = " ", replacement = "_", fixed = TRUE) %>%
+                              sapply(function(x) {as.character(a(href = paste0("https://en.wikipedia.org/wiki/", x), x))} )
+                         filter( usData, as.character(usData$State) == input$StatePie)
                             
                          } , escape = FALSE)  
                             
