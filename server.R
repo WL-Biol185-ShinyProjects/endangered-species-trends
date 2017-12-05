@@ -3,9 +3,12 @@ library(shiny)
 library(tidyverse)
 library(ggplot2)
 library(leaflet)
+library(shinythemes)
 
 worldData <- read.table("worldData.txt")
 usData <- read.table("usStateDataClean.txt")
+
+firstup <- function(x) {substr(x, 1, 1) <- toupper(substr(x, 1, 1))}
 
 function(input,output){ 
                         output$countryPlot <- renderPlot({ colnames(worldData)[2] <- "classification"
@@ -170,13 +173,30 @@ function(input,output){
                                count(State, Organism.Type) %>%
                                 ggplot( aes( x = State, y = n, fill = Organism.Type, label = n)) + geom_bar( width = 1, stat = "identity") + coord_polar(theta = "y") + theme_void() + geom_text(size = 12, position = position_stack(vjust = 0.5)) })
                           
+                        
+                        
+                         
+                        
                         output$usPieTable <- renderDataTable({
+                          
+                          
+                         
+                          
+                          
+                
                           usData %>%
-                            filter(as.character(usData$State) == input$StatePie)
                             
-                        })  
+                              
+                          
+                          firstup(tolower(usData$Species.Name)) %>%
+                            gsub(pattern = " ", replacement = "_", fixed = TRUE) %>%
+                            sapply(function(x) {as.character(a(href = paste0("https://en.wikipedia.org/wiki/", x), x))} ) %>%
+                
+                          filter( as.character(usData$State) == input$StatePie)
                             
-                           
+                         } , escape = FALSE)  
+                            
+                              
 
                         
                        

@@ -2,10 +2,13 @@ library(shiny)
 library("ggmap")
 library(maptools)
 library(maps)
+library(shinythemes)
+
 source("speciesByCountry.R")
 source("statePie.R")
 source("worldMaps.R")
-
+source("homePage.R")
+source("sourcesPage.R")
 
 worldData <- read.table("worldData.txt")
 usData <- read.table("usStateDataClean.txt")
@@ -13,11 +16,13 @@ usData <- read.table("usStateDataClean.txt")
 # Define UI for application that draws a histogram
 
 # Application title
-navbarPage( "Endangered Species App"
+navbarPage( theme = shinytheme("cerulean"),
+            
+  "Endangered Species App"
             #Tab Title
             
-          , tabPanel( "Home"
-                    )
+          , homePage 
+          
           , statusTab
             
 
@@ -28,7 +33,7 @@ navbarPage( "Endangered Species App"
             
           , globalTab
           
-          , tabPanel( "Sources")
+          , sourcesPage
           )
 
 
