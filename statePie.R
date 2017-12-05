@@ -2,7 +2,7 @@ usData <- read.table("usStateDataClean.txt"
 )
 
 # Define UI for application that draws a bar graph
-statePie <- tabPanel( "Species Groups by State"
+statePie <- tabPanel( "Species Status by State"
 
                       , fluidPage( # Sidebar with a dropdown for selecting Country
                         sidebarLayout( 
