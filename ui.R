@@ -33,7 +33,10 @@ navbarPage( theme = shinytheme("cerulean"),
             
           , globalTab
           
+
           , sourcesPage
+
           )
+          
 
 
