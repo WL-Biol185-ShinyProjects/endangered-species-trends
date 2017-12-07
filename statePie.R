@@ -1,7 +1,8 @@
-usData <- read.table("usStateDataClean.txt"
-)
+usData <- read.table( "usStateDataClean.txt"
+                    )
 
 # Define UI for application that draws a bar graph
+
 statePie <- tabPanel( "Species Groups by State"
                     , sidebarLayout( 
                                      sidebarPanel(
@@ -12,6 +13,7 @@ statePie <- tabPanel( "Species Groups by State"
                                                                               )
                                                               )
                                                  )
+
                           
                           
                                         # Show a plot of the endangered species by state
@@ -24,5 +26,6 @@ statePie <- tabPanel( "Species Groups by State"
                                    )
                       
                     )
+
 
 

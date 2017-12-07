@@ -1,5 +1,4 @@
 library(shiny)
-library("ggmap")
 library(maptools)
 library(maps)
 library(shinythemes)

@@ -1,5 +1,4 @@
 library(shiny)
-
 library(tidyverse)
 library(ggplot2)
 library(leaflet)
@@ -44,9 +43,50 @@ function(input,output){
                                                                                               )
                                                                   )
                                                         })
-
                         
-                        
+                        output$ThreatenedClass <- renderLeaflet({ 
+                                                                  ThreatenedClass <- worldData%>%
+                                                                    filter( iucn == "THREATENED"
+                                                                          , species == input$ThreatenedClass
+                                                                          )
+                                                                  
+                                                                  TCountriesGeo <- rgdal::readOGR( "countries.geo.json"
+                                                                                                 , "OGRGeoJSON"
+                                                                                                 )
+                                                                  
+                                                                  TCountriesGeo@data <- TCountriesGeo@data %>%
+                                                                    left_join( ThreatenedClass
+                                                                             , by = c( "name" = "country"
+                                                                                     )
+                                                                             )
+                                                                  
+                                                                  pal <- colorNumeric( "YlOrRd"
+                                                                                     , c( min( ThreatenedClass$value
+                                                                                             )
+                                                                                        , max( ThreatenedClass$value
+                                                                                             )
+                                                                                        )
+                                                                                     )
+                                                                  
+                                                                  leaflet( data = TCountriesGeo)%>%
+                                                                    addTiles()%>%
+                                                                    addPolygons( fillColor = ~pal( value)
+                                                                               , weight = 1
+                                                                               , opacity = 0.1
+                                                                               , fillOpacity = 0.7
+                                                                               )%>%
+                                                                    addLegend( pal = pal
+                                                                             , values = ~value
+                                                                             , title = "number of species"
+                                                                             , position = "bottomright"
+                                                                             )%>%
+                                                                    setView( lat = 38.0110306
+                                                                           , lng = 0
+                                                                           , zoom = 1.5
+                                                                           )
+                                                                  
+                                                               })
+                                                                
                         output$EndangeredClass <- renderLeaflet({ 
                                                                   EndangeredClass <- worldData%>%
                                                                     filter( iucn == "ENDANGERED"
@@ -90,50 +130,7 @@ function(input,output){
                                                                            )
                                                   
                                                                })
-                        
-                        output$ThreatenedClass <- renderLeaflet({ 
-                                                                  ThreatenedClass <- worldData%>%
-                                                                    filter( iucn == "THREATENED"
-                                                                          , species == input$ThreatenedClass
-                                                                          )
-                                                                  
-                                                                  TCountriesGeo <- rgdal::readOGR( "countries.geo.json"
-                                                                                                 , "OGRGeoJSON"
-                                                                                                 )
-                                                                  
-                                                                  TCountriesGeo@data <- TCountriesGeo@data %>%
-                                                                    left_join( ThreatenedClass
-                                                                             , by = c( "name" = "country"
-                                                                                     )
-                                                                             )
-                                                                  
-                                                                  pal <- colorNumeric( "YlOrRd"
-                                                                                     , c( min( ThreatenedClass$value
-                                                                                             )
-                                                                                             , max( ThreatenedClass$value
-                                                                                                  )
-                                                                                             )
-                                                                                     )
-                                                                  
-                                                                  leaflet( data = TCountriesGeo)%>%
-                                                                    addTiles()%>%
-                                                                    addPolygons( fillColor = ~pal(value)
-                                                                               , weight = 1
-                                                                               , opacity = 0.1
-                                                                               , fillOpacity = 0.7
-                                                                               )%>%
-                                                                    addLegend( pal = pal
-                                                                             , values = ~value
-                                                                             , title = "number of species"
-                                                                             , position = "bottomright"
-                                                                             )%>%
-                                                                    setView( lat = 38.0110306
-                                                                           , lng = 0
-                                                                           , zoom = 1.5
-                                                                           )
-                                                                  
-                                                               })
-                  
+
                         output$VulnerableClass <- renderLeaflet({ 
                                                                   VulnerableClass <- worldData%>%
                                                                     filter( iucn == "VULNERABLE"
@@ -159,7 +156,7 @@ function(input,output){
                                                                                      )
                                                                   leaflet(data = VCountriesGeo)%>%
                                                                     addTiles()%>%
-                                                                    addPolygons( fillColor = ~pal(value)
+                                                                    addPolygons( fillColor = ~pal( value)
                                                                                , weight = 1
                                                                                , opacity = 0.1
                                                                                , fillOpacity = 0.7
@@ -201,7 +198,7 @@ function(input,output){
                                                                 
                                                                 leaflet(data = CCountriesGeo)%>%
                                                                   addTiles()%>%
-                                                                  addPolygons( fillColor = ~pal(value)
+                                                                  addPolygons( fillColor = ~pal( value)
                                                                              , weight = 1
                                                                              , opacity = 0.1
                                                                              , fillOpacity = 0.7
@@ -217,7 +214,6 @@ function(input,output){
                                                                          )
                                                                 
                                                              })
-
 
                         output$usPie <- renderPlot({
                                                      usData %>%
@@ -239,11 +235,7 @@ function(input,output){
                                                                                                                                               )
                                                                                                                    ) 
                                                   })
-                                                    
-                        
-                        
-                         
-                        
+                            
                         output$usPieTable <- renderDataTable({ 
                                                                usData$Species.Name <- 
                                                                  firstup( tolower( usData$Species.Name
