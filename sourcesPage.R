@@ -1,6 +1,6 @@
 
 sourcesPage <- tabPanel( "Sources"
-                       , titlePanel( "Data Sources")
+                       , titlePanel( "Sources")
                         
                        , br()
                          
