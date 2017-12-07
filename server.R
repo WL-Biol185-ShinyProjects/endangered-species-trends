@@ -1,11 +1,11 @@
-library(shiny)
-library(tidyverse)
-library(ggplot2)
-library(leaflet)
-library(shinythemes)
+library( shiny)
+library( tidyverse)
+library( ggplot2)
+library( leaflet)
+library( shinythemes)
 
-worldData <- read.table("worldData.txt")
-usData <- read.table("usStateDataClean.txt")
+worldData <- read.table( "worldData.txt")
+usData <- read.table( "usStateDataClean.txt")
 
 firstup <- function(x) { substr( x
                                , 1

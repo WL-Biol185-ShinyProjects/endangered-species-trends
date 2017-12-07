@@ -1,16 +1,16 @@
-library(shiny)
-library(maptools)
-library(maps)
-library(shinythemes)
+library( shiny)
+library( maptools)
+library( maps)
+library( shinythemes)
 
-source("speciesByCountry.R")
-source("statePie.R")
-source("worldMaps.R")
-source("homePage.R")
-source("sourcesPage.R")
+source( "speciesByCountry.R")
+source( "statePie.R")
+source( "worldMaps.R")
+source( "homePage.R")
+source( "sourcesPage.R")
 
-worldData <- read.table("worldData.txt")
-usData <- read.table("usStateDataClean.txt")
+worldData <- read.table( "worldData.txt")
+usData <- read.table( "usStateDataClean.txt")
 
 
 # Application title
