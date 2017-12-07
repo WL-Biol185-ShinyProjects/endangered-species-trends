@@ -4,7 +4,7 @@ sourcesPage <- tabPanel( "Sources"
                         
                        , br()
                          
-                       , h4( "United States Data::"
+                       , h4( "United States Data:"
                            , helpText( a( "U.S. FWS Threatened & Endangered Species"
                                         , href = "https://ecos.fws.gov/ecp/report/table/critical-habitat.html"
                                         , target = "_blank"
