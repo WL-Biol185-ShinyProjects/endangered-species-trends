@@ -1,5 +1,4 @@
-worldData <- read.table("worldData.txt"
-                       )
+worldData <- read.table( "worldData.txt")
 
 # Define UI for application that draws a bar graph
 statusTab <- tabPanel( "Species Status by Country"
@@ -12,7 +11,7 @@ statusTab <- tabPanel( "Species Status by Country"
                                                   )
                       
                       
-                                    # Show a plot of the endangered species by country
+                                      # Show a plot of the endangered species by country
                                     , mainPanel(
                                                  plotOutput( "countryPlot")
                                                )

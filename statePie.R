@@ -1,25 +1,31 @@
+
 usData <- read.table("usStateDataClean2.txt")
 
 # Define UI for application that draws a bar graph
-statePie <- tabPanel( "Species Status by State"
 
-                      , fluidPage( # Sidebar with a dropdown for selecting Country
-                        sidebarLayout( 
-                          sidebarPanel(
-                            selectInput( inputId = "StatePie"
-                                         , label = "Select a State" 
-                                         , choices = sort(unique(usData$State))
-                            )
-                          )
+statePie <- tabPanel( "Species Groups by State"
+                    , sidebarLayout( 
+                                     sidebarPanel(
+                                                   selectInput( inputId = "StatePie"
+                                                              , label = "Select a State" 
+                                                              , choices = sort( unique( usData$State
+                                                                                      )
+                                                                              )
+                                                              )
+                                                 )
+
                           
                           
-                          # Show a plot of the endangered species by country
-                          , mainPanel(
-                            plotOutput( "usPie"), 
-                            dataTableOutput("usPieTable")
-                          )
-                        )
-                      )
-)
+                                        # Show a plot of the endangered species by state
+                                   , mainPanel(
+                                                plotOutput( "usPie"
+                                                          )
+                                              , dataTableOutput( "usPieTable"
+                                                               )
+                                              )
+                                   )
+                      
+                    )
+
 
 
