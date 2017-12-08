@@ -11,7 +11,7 @@ source("homePage.R")
 source("sourcesPage.R")
 
 worldData <- read.table("worldData.txt")
-usData <- read.table("usStateDataClean.txt")
+usData <- read.table("usStateDataClean2.txt")
 
 # Define UI for application that draws a histogram
 
