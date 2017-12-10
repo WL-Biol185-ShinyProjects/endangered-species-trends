@@ -6,7 +6,7 @@ library(leaflet)
 library(shinythemes)
 
 worldData <- read.table("worldData.txt")
-usData <- read.table("usStateDataClean.txt")
+usData <- read.table("usStateDataClean2.txt")
 
 firstup <- function(x) { substr( x
                                , 1
