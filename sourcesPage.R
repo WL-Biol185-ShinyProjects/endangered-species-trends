@@ -45,7 +45,7 @@ sourcesPage <- tabPanel( "Sources"
                        
                        , h4("R Markdown File:"
                             , helpText( a("dataWranglingRMarkdown.Rmd"
-                                          , href = "https://rna.wlu.edu/r/s/b305f7538a84018a68aef/files/endangered-species-trends/dataWranglingRMarkdown.html"
+                                          , href = "https://rna.wlu.edu/r/s/f4e57e7b1959611c0eae7/files/endangered-species-trends/dataWranglingRMarkdown.html"
                                           , target = "_blank"
                                           )
                                         )
