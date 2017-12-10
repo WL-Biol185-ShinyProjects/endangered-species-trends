@@ -1,0 +1,26 @@
+---
+title: "Data Wrangling Information"
+output: html_document
+author: "Kubli, Limmer, McGhee, Trimas"
+date: 10/December/2017
+---
+
+
+
+Edits for US Data:
+
+For every location that reported multiple states, we copied the line and entered each state seperately. We deleted the duplicate rows and renamed troublesome species names for accurate wikipedia links. 
+The newest version is called "usStateDataClean2", located in the data folder.
+Source: https://ecos.fws.gov/ecp/report/table/critical-habitat.html
+
+
+Edits for World Data:
+
+We changed all column names to lowercase. We removed unimportant columns(Unit Code, Unit, PowerCode Code, PowerCode, Reference Period Code, Reference Period, Flag Codes, Flags). The newest version is called "worldData", located in the data folder. 
+Source: https://stats.oecd.org/Index.aspx?DataSetCode=WILD_LIFE 
+  
+  
+Edits for Merging our World Data with Country Location Data:
+
+All of the countries in the world data did not match with geo.json; we changed United States to United States of America, Korea to North and South Korea, and Slovak Republic to Slovakia. The newest version is called "countries.geo.json", located in the data folder. 
+Source: https://github.com/johan/world.geo.json/blob/master/countries.geo.json

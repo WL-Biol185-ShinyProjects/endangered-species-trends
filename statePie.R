@@ -1,5 +1,5 @@
 
-usData <- read.table("usStateDataClean2.txt")
+usData <- read.table("data/usStateDataClean2.txt")
 
 # Define UI for application that draws a bar graph
 

@@ -11,8 +11,8 @@ source( "homePage.R")
 source( "sourcesPage.R")
 
 
-worldData <- read.table("worldData.txt")
-usData <- read.table("usStateDataClean2.txt")
+worldData <- read.table("data/worldData.txt")
+usData <- read.table("data/usStateDataClean2.txt")
 
 
 # Application title
