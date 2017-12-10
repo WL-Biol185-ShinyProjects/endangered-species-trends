@@ -85,7 +85,7 @@ function(input,output){
                                                          )%>%
                                                 setView( lat = 38.0110306
                                                        , lng = 0
-                                                       , zoom = 1.5
+                                                       , zoom = 1
                                                        )
                                               
                                            })
@@ -129,7 +129,7 @@ function(input,output){
                                                          )%>%
                                                 setView( lat = 38.0110306
                                                        , lng = 0
-                                                       , zoom = 1.5
+                                                       , zoom = 1
                                                        )
                               
                                            })
@@ -171,7 +171,7 @@ function(input,output){
                                                          )%>%
                                                 setView( lat = 38.0110306
                                                        , lng = 0
-                                                       , zoom = 1.5
+                                                       , zoom = 1
                                                        )
                                               
                                            })
@@ -213,7 +213,7 @@ function(input,output){
                                                        )%>%
                                               setView( lat = 38.0110306
                                                      , lng = 0
-                                                     , zoom = 1.5
+                                                     , zoom = 1
                                                      )
                                             
                                          })
