@@ -3,7 +3,7 @@ usData <- read.table("usStateDataClean2.txt")
 
 # Define UI for application that draws a bar graph
 
-statePie <- tabPanel( "Species Groups by State"
+statePie <- tabPanel( "Species Status by State"
                     , sidebarLayout( 
                                      sidebarPanel(
                                                    selectInput( inputId = "StatePie"
