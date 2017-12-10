@@ -7,24 +7,12 @@ library(maps)
 #Draw world map
 globalTab <- tabPanel( "Global Heat Map"
                      , tabsetPanel( 
-                                    tabPanel( "Endangered Species"
-                                            , sidebarPanel(
-                                                            selectInput( inputId = "EndangeredClass"
-                                                                       , label = "Select a Class of Animal" 
-                                                                       , choices = unique( worldData$species)
-                                                                       )
-                                                          )
-                                            , mainPanel(
-                                                         leafletOutput( "EndangeredClass"
-                                                                      )
-                                                       )
-                                            )
-                                    
-                                  , tabPanel( "Threatened Species"
+                                    tabPanel( "Threatened Species"
                                             , sidebarPanel(
                                                             selectInput( inputId = "ThreatenedClass"
                                                                        , label = "Select a Class of Animal" 
-                                                                       , choices = unique( worldData$species)
+                                                                       , choices = unique( worldData$species
+                                                                                         )
                                                                        )
                                                           )
                                             , mainPanel(
@@ -32,22 +20,39 @@ globalTab <- tabPanel( "Global Heat Map"
                                                                       )
                                                        )
                                             )
-                                  
+                                    
+                                  , tabPanel( "Endangered Species"
+                                            , sidebarPanel(
+                                                            selectInput( inputId = "EndangeredClass"
+                                                                       , label = "Select a Class of Animal" 
+                                                                       , choices = unique( worldData$species
+                                                                                         )
+                                                                       )
+                                                                      )
+                                                          , mainPanel(
+                                                                       leafletOutput( "EndangeredClass"
+                                                                                  )
+                                                                     )
+                                                          )
+                                                
+                                             
+                                              
                                   , tabPanel( "Vulnerable Species"
                                             , sidebarPanel(
                                                             selectInput( inputId = "VulnerableClass"
                                                                        , label = "Select a Class of Animal" 
-                                                                       , choices = unique( worldData$species)
+                                                                       , choices = unique( worldData$species
+                                                                                         )
                                                                        )
                                                           )
-                                            
-                                            , mainPanel(
-                                                         leafletOutput( "VulnerableClass"
-                                                                      )
-                                                       )
-                                            )
-                                  
-                                            
+                                              
+                                              , mainPanel(
+                                                           leafletOutput( "VulnerableClass"
+                                                                        )
+                                                         )
+                                              )
+                                    
+                                              
                                   , tabPanel( "Critically Endangered Species"
                                             , sidebarPanel(
                                                             selectInput( inputId = "CriticalClass"
@@ -55,10 +60,10 @@ globalTab <- tabPanel( "Global Heat Map"
                                                                        , choices = unique( worldData$species)
                                                                        )
                                                           )
-                                            
+                                  
                                             , mainPanel(
-                                                        leafletOutput( "CriticalClass"
-                                                                     )
+                                                         leafletOutput( "CriticalClass"
+                                                                      )
                                                        )
                                             )
                                   
