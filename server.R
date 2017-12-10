@@ -1,11 +1,13 @@
+
 library( shiny)
 library( tidyverse)
 library( ggplot2)
 library( leaflet)
 library( shinythemes)
 
-worldData <- read.table( "worldData.txt")
-usData <- read.table( "usStateDataClean.txt")
+worldData <- read.table("data/worldData.txt")
+usData <- read.table("data/usStateDataClean2.txt")
+
 
 firstup <- function(x) { substr( x
                                , 1
@@ -21,6 +23,7 @@ firstup <- function(x) { substr( x
 
 
 function(input,output){ 
+
     output$countryPlot <- renderPlot({ colnames(worldData)[2] <- "classification"
                                        worldData %>%
                                          filter( country == input$country 
@@ -50,7 +53,7 @@ function(input,output){
                                                       , species == input$ThreatenedClass
                                                       )
                                               
-                                              TCountriesGeo <- rgdal::readOGR( "countries.geo.json"
+                                              TCountriesGeo <- rgdal::readOGR( "data/countries.geo.json"
                                                                              , "OGRGeoJSON"
                                                                              )
                                               
@@ -86,14 +89,14 @@ function(input,output){
                                                        )
                                               
                                            })
-                                            
+
     output$EndangeredClass <- renderLeaflet({ 
                                               EndangeredClass <- worldData%>%
                                                 filter( iucn == "ENDANGERED"
                                                       , species == input$EndangeredClass
                                                       )
                                               
-                                              ECountriesGeo <- rgdal::readOGR( "countries.geo.json"
+                                              ECountriesGeo <- rgdal::readOGR( "data/countries.geo.json"
                                                                              , "OGRGeoJSON"
                                                                              )
                                             
@@ -137,7 +140,7 @@ function(input,output){
                                                       , species == input$VulnerableClass
                                                       )
                                               
-                                              VCountriesGeo <- rgdal::readOGR( "countries.geo.json"
+                                              VCountriesGeo <- rgdal::readOGR( "data/countries.geo.json"
                                                                              , "OGRGeoJSON"
                                                                              )
                                               
@@ -178,7 +181,7 @@ function(input,output){
                                               filter( iucn == "CRITICAL"
                                                     , species == input$CriticalClass
                                                     )
-                                            CCountriesGeo <- rgdal::readOGR( "countries.geo.json"
+                                            CCountriesGeo <- rgdal::readOGR( "data/countries.geo.json"
                                                                            , "OGRGeoJSON"
                                                                            )
                                             

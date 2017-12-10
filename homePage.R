@@ -10,7 +10,7 @@ homePage <- tabPanel( "Home"
                                , br()
                                , br()
                                , br()
-                               , h4( "Because we know that species have been disappearing from this planet at a devastating rate
+                               , h4( "Because we know that species have been disappearing from this planet at a devastating rate,
                         this WebApp was designed to help users see the trends of this disappearance."
                                    )
                                , br()
